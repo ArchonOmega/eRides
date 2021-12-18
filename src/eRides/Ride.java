@@ -68,7 +68,7 @@ public class Ride {
 		System.out.println("Position: " + disRate);
 		System.out.println("Club: " + disFare);
 	}
-	void notifyDrivers(String sourceDes) throws IOException
+	void notifyDrivers(String sourceDes, String Client) throws IOException
 	{
 		ArrayList<String> drFavs = new ArrayList<String>();
 		BufferedReader br = new BufferedReader(new FileReader("database//drivers//" + "Drivers.txt"));
@@ -80,7 +80,7 @@ public class Ride {
 				if(line2.equals(sourceDes))
 				{
 					FileWriter wR = new FileWriter("database//drivers//" + line + "_" + "notif" +".txt", true);
-					wR.write("Ride has been requested from favorite area " + sourceDes);
+					wR.write("Ride has been requested from favorite area " + sourceDes + " by User " + Client);
 					wR.write(System.getProperty( "line.separator" ));
 					wR.close();
 				}

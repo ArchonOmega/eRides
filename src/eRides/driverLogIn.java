@@ -84,5 +84,14 @@ public class driverLogIn extends User {
          w.close();
          System.out.println("Added " + loc + " to favorite pickup locations successfully.");
      }
+     void displayNotifs(String driverName) throws FileNotFoundException
+     {
+    	 System.out.println("Your notifications: ");
+		 Scanner input = new Scanner(new File("database//drivers//" + driverName + "_" + "notif" + ".txt"));
+		 while (input.hasNextLine())
+		 {
+			 System.out.println(input.nextLine());
+		 }
+     }
     
 }

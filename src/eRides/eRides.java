@@ -21,6 +21,7 @@ public class eRides {
     int choice;
     Scanner chc = new Scanner(System.in);
     String userType = null;
+    Ride GeneralRideEntity = new Ride();
     while(true)
     {
     	System.out.println("\nPlease enter what you want to do: \n");
@@ -151,6 +152,7 @@ public class eRides {
         	usrChoice = uC.nextInt();
         	if(usrChoice == 1)
         	{
+        		String User = ul.getUsername();
         		String src;
         		String dest;
         		Scanner sdScr = new Scanner(System.in);
@@ -160,6 +162,7 @@ public class eRides {
         		dest = sdScr.nextLine();
         		System.out.println("Requesting Ride from " + src + " to " + dest + ". Please Stand by...");
         		rm.makeRide().createRide(src, dest);
+        		GeneralRideEntity.notifyDrivers(src, User);
         		
         	}
     	}
