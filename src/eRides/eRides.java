@@ -124,7 +124,8 @@ public class eRides {
     		Scanner dC = new Scanner(System.in);
     		int dChoice;
     		System.out.println("\n1. Add Favorite Destination");
-    		System.out.println("\n2. Update Ride Offer");
+    		System.out.println("\n2. Display Notifications");
+    		System.out.println("\n3. Update Ride Offer");
     		dChoice = dC.nextInt();
     		if(dChoice == 1)
     		{
@@ -134,6 +135,11 @@ public class eRides {
     			location = locScr.nextLine();
     			String driverName = dl.getDrivername();
     			dl.addFavorite(location, driverName);
+    		}
+    		else if(dChoice == 2)
+    		{
+    			String dName = dl.getDrivername();
+    			dl.displayNotifs(dName);
     		}
     	}
     	else if(userType.equals("User"))
