@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-15">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/Ahmed Medhat/Downloads/test API/test API/src/lib/google-maps-services-1.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Ahmed Medhat/Downloads/test API/test API/src/lib/okhttp-2.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Ahmed Medhat/Downloads/test API/test API/src/lib/okio-3.0.0.jar"/>
+	<classpathentry kind="lib" path="src/eRides/Google API/google-maps-services-1.0.0.jar"/>
+	<classpathentry kind="lib" path="src/eRides/Google API/okhttp-2.5.0.jar"/>
+	<classpathentry kind="lib" path="src/eRides/Google API/okio-3.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
