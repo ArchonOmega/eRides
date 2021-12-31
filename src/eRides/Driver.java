@@ -7,6 +7,7 @@ public class Driver extends Person {
 	String passwd;
 	String dLicense;
 	String natId;
+	String curBalance;
 	String verified;
 
 }

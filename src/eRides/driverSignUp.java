@@ -32,6 +32,8 @@ public class driverSignUp extends Driver {
         System.out.println("Enter Favorite Area 1: ");
         String favArea = in.nextLine();
         verified = "False";
+        int suBalance = 0;
+        curBalance = Integer.toString(suBalance);
         
         int i=0;
         while(i<=3) {
@@ -51,6 +53,8 @@ public class driverSignUp extends Driver {
         w1.write(dLicense);
         w1.write(System.getProperty( "line.separator" ));
         w1.write(natId);
+        w1.write(System.getProperty( "line.separator" ));
+        w1.write(curBalance);
         w1.write(System.getProperty( "line.separator" ));
         w1.write(verified);
         w1.write(System.getProperty( "line.separator" ));
@@ -96,13 +100,13 @@ public class driverSignUp extends Driver {
      
      void displayDetails(String Username) throws IOException
  	{
- 		int nameLine = 0;
- 		int mailLine = 1;
- 		int phoneLine = 2;
- 		int passLine = 3;
+ 		int nameLine = 2;
+ 		int mailLine = 0;
+ 		int phoneLine = 3;
+ 		int passLine = 1;
  		int dLine = 4;
  		int natLine = 5;
- 		int verLine = 6;
+ 		int verLine = 7;
  		
  		String disName = Files.readAllLines(Paths.get("database//drivers//" + Username + ".txt")).get(nameLine);
  		String disMail = Files.readAllLines(Paths.get("database//drivers//" + Username + ".txt")).get(mailLine);

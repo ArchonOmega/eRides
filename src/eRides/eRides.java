@@ -126,7 +126,7 @@ public class eRides {
     		int dChoice;
     		System.out.println("\n1. Add Favorite Destination");
     		System.out.println("\n2. Display Notifications");
-    		System.out.println("\n3. Update Ride Offer");
+    		System.out.println("\n3. Add/Update Ride Offer");
     		dChoice = dC.nextInt();
     		if(dChoice == 1)
     		{
@@ -142,13 +142,30 @@ public class eRides {
     			String dName = dl.getDrivername();
     			dl.displayNotifs(dName);
     		}
+    		else if(dChoice == 3)
+    		{
+        		Scanner ofr = new Scanner(System.in);
+        		System.out.println("\nPlease enter client, source and destination of the ride you would like to make an offer for: ");
+        		System.out.println("\nClient: ");
+        		String client = ofr.nextLine();
+        		System.out.println("\nSource: ");
+        		String src = ofr.nextLine();
+        		System.out.println("\nDestination: ");
+        		String dest = ofr.nextLine();
+        		String driver = dl.getDrivername();
+        		GeneralRideEntity.Offer(client, src, dest, driver);
+    		}
     	}
     	else if(userType.equals("User"))
     	{
     		Scanner uC = new Scanner(System.in);
     		int usrChoice;
     		System.out.println("\n1. Request Ride");
-        	System.out.println("\n2. Update Ride Offer");
+        	System.out.println("\n2. View and Confirm Ride offers");
+        	System.out.println("\n3. List unrated rides");
+        	System.out.println("\n4. Rate an unrated ride");
+        	System.out.println("\n5. View Ride History");
+        	System.out.println("\n6. View Ride Details");
         	usrChoice = uC.nextInt();
         	if(usrChoice == 1)
         	{
@@ -156,14 +173,54 @@ public class eRides {
         		String src;
         		String dest;
         		Scanner sdScr = new Scanner(System.in);
-        		System.out.println("Please input Source Location: ");
+        		System.out.println("\nPlease input Source Location: ");
         		src = sdScr.nextLine();
-        		System.out.println("Please input Destination Location: ");
+        		System.out.println("\nPlease input Destination Location: ");
         		dest = sdScr.nextLine();
-        		System.out.println("Requesting Ride from " + src + " to " + dest + ". Please Stand by...");
+        		System.out.println("\nRequesting Ride from " + src + " to " + dest + ". Please Stand by...");
         		rm.makeRide().createRide(src, dest);
         		GeneralRideEntity.notifyDrivers(src, User);
         		
+        	}
+        	else if(usrChoice == 2)
+        	{
+        		Scanner selector = new Scanner(System.in);
+        		GeneralRideEntity.listRides();
+        		System.out.println("\nTo begin confirming a ride, Please enter its source and destination: ");
+        		System.out.println("\nSource: ");
+        		String src = selector.nextLine();
+        		System.out.println("\nDestination: ");
+        		String dest = selector.nextLine();
+        		GeneralRideEntity.selectOffer(src, dest);
+        		GeneralRideEntity.userAccept(src, dest);
+        	}
+        	else if(usrChoice == 3)
+        	{
+        		GeneralRideEntity.listUnrated();
+        	}
+        	else if(usrChoice == 4)
+        	{
+        		Scanner rateScr = new Scanner(System.in);
+        		System.out.println("Please enter the source and destination of the ride you would like to rate: ");
+        		System.out.println("\nSource: ");
+        		String src = rateScr.nextLine();
+        		System.out.println("\nDestination: ");
+        		String dest = rateScr.nextLine();
+        		GeneralRideEntity.rate(src, dest);
+        	}
+        	else if(usrChoice == 5)
+        	{
+        		GeneralRideEntity.listRides();
+        	}
+        	else if(usrChoice == 6)
+        	{
+        		Scanner viewScr = new Scanner(System.in);
+        		System.out.println("Please enter the source and destination of the ride you would like to view the details of: ");
+        		System.out.println("\nSource: ");
+        		String src = viewScr.nextLine();
+        		System.out.println("\nDestination: ");
+        		String dest = viewScr.nextLine();
+        		GeneralRideEntity.displayDetails(src, dest);
         	}
     	}
     	else if(userType.equals("Admin"))

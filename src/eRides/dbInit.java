@@ -8,7 +8,6 @@ import java.nio.file.Paths;
 public class dbInit {
 	void init() throws IOException
 	{
-		
 		System.out.println("\nDatabase Initialization has been started, please stand by...");
 		Path currentWorkingDir = Paths.get("").toAbsolutePath();
 		Path Users = Paths.get(currentWorkingDir.normalize().toString() + "//database//users//");
